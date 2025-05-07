@@ -1,0 +1,38 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: white;
+    border-bottom: 2px solid #ddd;
+}
+.red {
+    color: red;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: left;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 14px;
+    
+}
