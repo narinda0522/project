@@ -5,162 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NARIN.nda</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Original CSS dengan tambahan responsive */
+        .red {
+            color: red;
         }
 
         body {
+            margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background: white;
         }
 
-        .red {
-            color: #e74c3c;
-        }
-
-        /* Header Styles */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
             background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
+            padding: 10px 0;
         }
 
-        #logo {
-            font-weight: 900;
-            font-style: italic;
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            color: #333;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            font-size: clamp(0.9rem, 2vw, 1rem);
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #e74c3c;
-        }
-
-        .nav-icons {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .search-bar {
-            width: clamp(150px, 20vw, 200px);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            border: 2px solid #ccc;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .search-bar:focus {
-            border-color: #e74c3c;
-        }
-
-        .icon {
-            width: clamp(30px, 6vw, 50px);
-            height: clamp(30px, 6vw, 50px);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .icon:hover {
-            transform: scale(1.1);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .mobile-menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: #333;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
         .hero-section {
+            display: flex;
+            align-items: center;
             background: #333;
             color: white;
-            display: flex;
-            align-items: center;
-            padding: 2rem;
-            min-height: 70vh;
-            gap: 3rem;
+            padding: 50px;
+            min-height: 500px;
         }
 
         .hero-content {
             flex: 1;
-            max-width: 600px;
-        }
-
-        .hero-content h2 {
-            font-style: italic;
-            font-size: clamp(2rem, 6vw, 4rem);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            color: white;
-        }
-
-        .hero-content p {
-            font-style: italic;
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            margin-bottom: 2rem;
-            color: #ccc;
-            line-height: 1.6;
-        }
-
-        .hero-content button {
-            background: black;
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-size: clamp(0.9rem, 2vw, 1rem);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .hero-content button:hover {
-            background: #222;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .hero-image {
@@ -171,52 +49,41 @@
         .hero-image img {
             max-width: 100%;
             height: auto;
-            border-radius: 0;
-            box-shadow: none;
         }
 
-        /* Product Sections */
         .product-section {
-            padding: 4rem 2rem;
+            padding: 50px 20px;
             text-align: center;
-            background: white;
-        }
-
-        .product-section h2 {
-            font-style: italic;
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            margin-bottom: 3rem;
-            color: #333;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
         }
 
         .product {
             background: white;
-            border-radius: 15px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
         .product:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .product-box {
             width: 100%;
             height: 200px;
             overflow: hidden;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background: #f5f5f5;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -226,193 +93,156 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .product:hover .product-box img {
-            transform: scale(1.1);
-        }
-
-        .product h3 {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .product p {
-            font-size: clamp(1rem, 2.5vw, 1.1rem);
-            font-weight: 600;
-            color: #e74c3c;
         }
 
         .discount {
             text-decoration: line-through;
             color: #999;
-            margin-right: 0.5rem;
         }
 
-        /* Comment Section */
         .comment-section {
-            background: white;
-            padding: 4rem 2rem;
-            margin: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .comment-section h2 {
-            font-style: italic;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #333;
-            font-size: clamp(1.5rem, 4vw, 2rem);
+            padding: 50px 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .comment-section input,
         .comment-section textarea {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            outline: none;
-            font-size: clamp(0.9rem, 2vw, 1rem);
-            transition: border-color 0.3s ease;
-        }
-
-        .comment-section input:focus,
-        .comment-section textarea:focus {
-            border-color: #e74c3c;
+            box-sizing: border-box;
         }
 
         .styled-button {
             background: #e74c3c;
             color: white;
             border: none;
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            padding: 10px 20px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
+            font-size: 16px;
         }
 
         .styled-button:hover {
             background: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
         }
 
-        /* Newsletter Section */
         .rectangle {
             background: #2c3e50;
             color: white;
-            padding: 4rem 2rem;
-            margin: 2rem;
-            border-radius: 20px;
+            padding: 50px;
             text-align: center;
-        }
-
-        .rectangle h2 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            margin-bottom: 2rem;
-            line-height: 1.3;
+            margin: 20px;
+            border-radius: 10px;
         }
 
         .subscription-form {
             display: flex;
-            gap: 1rem;
             justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
         }
 
-        .subscription-form input {
-            padding: 1rem;
-            border-radius: 50px;
-            border: none;
-            outline: none;
-            font-size: clamp(0.9rem, 2vw, 1rem);
-            min-width: 250px;
-            flex: 1;
-            max-width: 400px;
-        }
-
-        .subscription-form button {
-            border-radius: 25px;
-            min-width: 200px;
-        }
-
-        /* Footer */
         footer {
             background: #2c3e50;
             color: white;
-            padding: 3rem 2rem 1rem;
-            text-align: center;
-        }
-
-        footer h1 {
-            font-weight: 900;
-            font-style: italic;
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            margin-bottom: 1rem;
-        }
-
-        footer p {
-            font-style: italic;
-            color: #bdc3c7;
-            margin-bottom: 2rem;
-            font-size: clamp(0.8rem, 2vw, 1rem);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .social-links img {
-            width: clamp(35px, 6vw, 58px);
-            height: clamp(35px, 6vw, 58px);
-            transition: transform 0.3s ease;
-        }
-
-        .social-links img:hover {
-            transform: scale(1.2);
+            padding: 30px 0;
         }
 
         footer hr {
             border: none;
             height: 1px;
             background: #34495e;
-            margin: 2rem 0 1rem;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
+        /* Mobile Menu Toggle - Hidden by default */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+            margin-right: 20px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* RESPONSIVE BREAKPOINTS */
+
+        /* Large screens - keep original */
+        @media (min-width: 1200px) {
             .product-grid {
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-                gap: 1.5rem;
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Medium screens - 3 columns */
+        @media (max-width: 1199px) and (min-width: 900px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+            }
+        }
+
+        /* Small screens - 2 columns */
+        @media (max-width: 899px) and (min-width: 600px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
             }
             
             .hero-section {
-                gap: 2rem;
+                padding: 30px;
+            }
+            
+            header h1 {
+                font-size: 24px !important;
+                margin-left: 20px !important;
+            }
+            
+            nav ul {
+                gap: 30px !important;
+                padding: 20px !important;
+            }
+            
+            .search-bar {
+                width: 150px !important;
+            }
+            
+            .icon {
+                width: 40px !important;
             }
         }
 
-        @media (max-width: 768px) {
+        /* Mobile screens */
+        @media (max-width: 599px) {
+            /* Header adjustments */
             header {
                 flex-wrap: wrap;
-                padding: 1rem;
+                padding: 10px;
             }
-
+            
+            header h1 {
+                font-size: 20px !important;
+                margin-left: 15px !important;
+            }
+            
+            /* Show mobile menu toggle */
             .mobile-menu-toggle {
                 display: flex;
             }
-
-            nav ul {
-                display: none;
+            
+            /* Hide desktop navigation */
+            nav > nav {
+                display: none !important;
+            }
+            
+            nav > nav.active {
+                display: flex !important;
                 width: 100%;
                 flex-direction: column;
                 position: absolute;
@@ -420,161 +250,207 @@
                 left: 0;
                 background: white;
                 box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                padding: 1rem;
-                gap: 1rem;
+                z-index: 999;
             }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            .nav-icons {
-                gap: 0.5rem;
-            }
-
-            .hero-section {
-                flex-direction: column;
-                text-align: center;
-                padding: 2rem 1rem;
-                gap: 2rem;
-            }
-
-            .hero-content {
-                order: 2;
-                max-width: 100%;
-            }
-
-            .hero-image {
-                order: 1;
-                max-width: 100%;
-            }
-
-            .product-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 1rem;
-            }
-
-            .product-section {
-                padding: 2rem 1rem;
-            }
-
-            .comment-section,
-            .rectangle {
-                margin: 1rem;
-                padding: 2rem 1rem;
-            }
-
-            .subscription-form {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .subscription-form input {
-                min-width: 200px;
-                max-width: 100%;
-            }
-
-            .subscription-form button {
-                min-width: 150px;
+            
+            nav ul {
+                flex-direction: column !important;
+                gap: 15px !important;
+                padding: 20px !important;
                 width: 100%;
-                max-width: 300px;
             }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 0.5rem 1rem;
+            
+            .nav-icons {
+                flex-direction: column !important;
+                gap: 10px !important;
+                padding: 20px;
+                width: 100%;
             }
-
+            
+            .search-bar {
+                width: 100% !important;
+                max-width: 250px;
+            }
+            
+            /* Hero section mobile */
             .hero-section {
-                padding: 1.5rem 1rem;
-                min-height: 60vh;
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+                min-height: 400px;
             }
-
+            
+            .hero-content {
+                order: 1;
+            }
+            
+            .hero-content h2 {
+                font-size: 28px !important;
+                margin: 10px 0 !important;
+            }
+            
+            .hero-content button {
+                width: 120px !important;
+                height: 35px !important;
+                font-size: 14px !important;
+            }
+            
+            /* HIDE cat image on mobile */
+            .hero-image {
+                display: none !important;
+            }
+            
+            /* Product grid - single column */
             .product-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 10px;
             }
-
+            
             .product {
-                padding: 1rem;
+                padding: 15px;
             }
-
+            
             .product-box {
                 height: 150px;
             }
-
-            .comment-section,
-            .rectangle {
-                margin: 0.5rem;
-                padding: 1.5rem 1rem;
-            }
-
-            .social-links {
-                gap: 0.5rem;
-            }
-        }
-
-        @media (max-width: 320px) {
-            .product-grid {
-                grid-template-columns: 1fr;
+            
+            .product h3 {
+                font-size: 16px;
             }
             
-            .hero-section {
-                padding: 1rem;
+            .product p {
+                font-size: 14px;
+            }
+            
+            /* Sections padding */
+            .product-section {
+                padding: 30px 15px;
+            }
+            
+            .product-section h2 {
+                font-size: 24px !important;
+            }
+            
+            /* Comment section */
+            .comment-section {
+                padding: 30px 15px;
+            }
+            
+            .comment-section h2 {
+                font-size: 22px !important;
+            }
+            
+            /* Newsletter section */
+            .rectangle {
+                margin: 10px;
+                padding: 30px 20px;
+            }
+            
+            .rectangle h2 {
+                font-size: 20px !important;
+                margin-left: 0 !important;
+                margin-top: 0 !important;
+            }
+            
+            .subscription-form {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .subscription-form input {
+                width: 100% !important;
+                max-width: 280px;
+                height: 40px !important;
+            }
+            
+            .subscription-form button {
+                width: 100% !important;
+                max-width: 200px;
+                margin-left: 0 !important;
+            }
+            
+            /* Footer */
+            footer div > div:first-child h1 {
+                font-size: 18px !important;
+                margin-left: 20px !important;
+            }
+            
+            footer div > div:first-child p {
+                margin-left: 20px !important;
+                font-size: 12px !important;
+            }
+            
+            footer div > div:last-child {
+                margin-left: 20px !important;
+                text-align: left;
+            }
+            
+            footer div > div:last-child img {
+                width: 40px !important;
+            }
+            
+            footer hr {
+                margin-left: 20px !important;
+                margin-right: 20px;
+            }
+            
+            footer > div > p:last-child {
+                margin-left: 20px !important;
+                font-size: 11px !important;
             }
         }
 
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Hide images that don't exist */
-        img {
-            background: #f0f0f0;
-            border: 1px solid #ddd;
-        }
-
-        /* Loading animation for images */
-        .product-box img {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .product-box img:loaded,
-        .product-box img[src] {
-            opacity: 1;
+        /* Very small screens */
+        @media (max-width: 320px) {
+            .hero-content h2 {
+                font-size: 24px !important;
+            }
+            
+            .product-section h2 {
+                font-size: 20px !important;
+            }
+            
+            .rectangle {
+                margin: 5px;
+                padding: 20px 15px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1 id="logo">NARIN.<span class="red">nda</span></h1>
+        <h1 id="logo" style="font-weight: 900; font-style: italic; margin-left: 45px;">NARIN.<span class="red">nda</span></h1>
+        
+        <!-- Mobile Menu Toggle -->
         <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
             <span></span>
             <span></span>
             <span></span>
         </div>
+        
         <nav>
-            <ul id="nav-menu">
+            <nav id="desktop-nav" style="display: flex; align-items: center; list-style: none; margin: 0; padding-right: 100px;">
+                <ul style="display: flex; align-items: center; gap: 50px; list-style: none; margin: 0; padding: 38px;">
                 <li><a href="#top-selling" class="smooth-scroll">Top Selling</a></li>
                 <li><a href="#new-arrivals" class="smooth-scroll">New Arrival</a></li>
-                <li><a href="#all-products" class="smooth-scroll">All Products</a></li>
+                <li><a href="#all-products"class= "smooth-scroll">All Products</a></li>
             </ul>
-            <div class="nav-icons">
-                <input type="text" placeholder="Search..." class="search-bar">
-                <img src="file/Keranjang.png" alt="Cart" class="icon cart-icon">
-                <img src="file/Profil.png" alt="Profile" class="icon profile-icon">
+            <div class="nav-icons" style="display: flex; align-items: center; gap: 0px;">
+                <input type="text" placeholder="  Search..." class="search-bar" style="width: 200px; height: auto; padding: 5px; border-radius: 25px; border: 2px solid #ccc;">
+                <img src="file/Keranjang.png" alt="Cart" class="icon cart-icon" style="width: 50px; cursor: pointer;">
+                <img src="file/Profil.png" alt="Profile" class="icon profile-icon" style="width: 50px; cursor: pointer;">
             </div>
         </nav>
     </header>
-
     <section class="hero-section">
         <div class="hero-content">
-            <h2>FIND <span class="red">CLOTHES</span><br>THAT MATCHES<br>FOR YOUR CAT!</h2>
-            <p>We bring you to world of cat clothes, where the coolest things happen here.</p>
-            <button onclick="document.getElementById('all-products').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
+            <h2 style="font-style: italic; font-size: 60px; margin: 10px;">FIND <span class="red">CLOTHES</span>  
+                <br> THAT MATCHES <br> FOR YOUR CAT!</h2>
+            <p style="font-style: italic;">We bring you to world of cat clothes, where the coolest things happen here.</p>
+            
+            <button onclick="document.getElementById('all-products').scrollIntoView({behavior: 'smooth'})" class="smooth-scroll" style="width: 150px; height: 40px; border-radius: 50px; font-size: 15px; background: black; color: white; border: none; cursor: pointer;">Shop Now</button>
+            
         </div>
         <div class="hero-image">
             <img src="file/9.png" alt="Cat Image">
@@ -582,8 +458,9 @@
     </section>
 
     <section id="new-arrivals" class="product-section">
-        <h2>NEW ARRIVALS</h2>
+        <h2 style="font-style: italic;">NEW ARRIVALS</h2>
         <div class="product-grid">
+    
             <div class="product">
                 <div class="product-box">
                     <img src="file/Tahanan.png" alt="Product 1">
@@ -602,7 +479,7 @@
 
             <div class="product">
                 <div class="product-box">
-                    <img src="file/Gucci Set cute girl.png" alt="Product 3">
+                    <img src="file/Gucci Set cute girl.png"alt="Product 3">
                 </div>
                 <h3>Gucci Set cute girl</h3>
                 <p>Rp. 2.000.000</p>
@@ -615,12 +492,14 @@
                 <h3>Pink Prada</h3>
                 <p><span class="discount">Rp. 2.500.000</span> Rp. 1.750.000</p>
             </div>
+
         </div>
     </section>
 
     <section id="top-selling" class="product-section">
-        <h2>TOP SELLING PRODUCT</h2>
+        <h2 style="font-style: italic;">TOP SELLING PRODUCT</h2>
         <div class="product-grid">
+            
             <div class="product">
                 <div class="product-box">
                     <img src="file/Calvin Klein Superman .png" alt="Product 5">
@@ -639,7 +518,7 @@
 
             <div class="product">
                 <div class="product-box">
-                    <img src="file/Fun Prada .png" alt="Product 7">
+                    <img src="file/Fun Prada .png"alt="Product 7">
                 </div>
                 <h3>Fun Prada</h3>
                 <p>Rp. 1.500.000</p>
@@ -652,12 +531,14 @@
                 <h3>Gucci gang</h3>
                 <p><span class="discount">Rp. 4.500.000</span> Rp. 1.750.000</p>
             </div>
+
         </div>
     </section>
 
     <section id="all-products" class="product-section">
-        <h2>ALL PRODUCTS</h2>
+        <h2 style="font-style: italic;">ALL PRODUCTS</h2>
         <div class="product-grid">
+        
             <div class="product">
                 <div class="product-box">
                     <img src="file/Tahanan.png" alt="Product 1">
@@ -676,7 +557,7 @@
 
             <div class="product">
                 <div class="product-box">
-                    <img src="file/Gucci Set cute girl.png" alt="Product 3">
+                    <img src="file/Gucci Set cute girl.png"alt="Product 3">
                 </div>
                 <h3>Gucci Set cute girl</h3>
                 <p>Rp. 2.000.000</p>
@@ -708,7 +589,7 @@
 
             <div class="product">
                 <div class="product-box">
-                    <img src="file/Fun Prada .png" alt="Product 7">
+                    <img src="file/Fun Prada .png"alt="Product 7">
                 </div>
                 <h3>Fun Prada</h3>
                 <p>Rp. 1.500.000</p>
@@ -718,47 +599,54 @@
                 <div class="product-box">
                     <img src="file/Gucci gang.png" alt="Product 8">
                 </div>
-                <h3>Gucci gang</h3>
+                <h3 >Gucci gang</h3>
                 <p><span class="discount">Rp. 4.500.000</span> Rp. 1.750.000</p>
             </div>
+
         </div>
     </section>
 
     <section class="comment-section">
-        <h2>Leave a Comment</h2>
-        <input type="text" id="nameInput" placeholder="Your Name">
-        <textarea id="commentBox" placeholder="Write your comment..."></textarea>
-        <button onclick="submitComment()" class="styled-button">Submit</button>
+        <h2 style="font-style: italic;">Leave a Comment</h2>
+        <input type="text" id="nameInput" placeholder="Your Name" style="width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ddd;">
+        <textarea id="commentBox" placeholder="Write your comment..." style="width: 100%; padding: 8px; height: 100px; border-radius: 5px; border: 1px solid #ddd;"></textarea>
+        <button onclick="submitComment()" class="styled-button" style="margin-bottom: 5%;">Submit</button>
         <div id="commentList"></div>
     </section>
     
     <div class="rectangle">
-        <h2>STAY UP TO DATE<br>ABOUT OUR LATEST OFFERS</h2>
-        <form class="subscription-form" onsubmit="handleSubscription(event)">
-            <input type="email" placeholder="Enter your email address" required>
-            <button class="styled-button" type="submit">Subscribe to Newsletter</button>
+        <h2 style="margin-left: 50px; margin-top: 40px; font-size: 32px;">STAY UP TO DATE <br> ABOUT OUR LATEST OFFERS</h2>
+        <form class="subscription-form">
+            <input type="email" placeholder="Enter your email address" style="border-radius: 50px; width: 300px; height: 35px; padding: 0 15px; border: none;" required>
+            <button class="styled-button" type="submit" style="border-radius: 25px; margin-left: 5px; width: 200px;">Subscribe to Newsletter</button>
         </form>
     </div>
 
     <footer>
-        <h1>NARIN.<span class="red">nda</span></h1>
-        <p>We have clothes that suits your cat style<br>and which you're proud to wear,<br>For your cat</p>
-        
-        <div class="social-links">
-            <a href="mailto:nafilaarinda@gmail.com"><img src="file/mail.png" alt="mail"></a> 
-            <a href="https://wa.me/6282139719944"><img src="file/wa.png" alt="wa"></a>
-            <a href="https://www.instagram.com/nafila.arainda/"><img src="file/ig.png" alt="instagram"></a>
+        <div>
+            <div>
+                <h1 style="font-weight: 900; font-style: italic; margin-left: 45px;" href="#logo" class="smooth-scroll">NARIN.<span class="red">nda</span></h1>
+                <p style="margin-left: 50px; font-size: 14px; font-style: italic; color: #ccc;">We have clothes 
+                    <br>that suits your cat style 
+                    <br>and which you're proud to wear, 
+                    <br>For your cat</p>
+            </div>
+            
+            <div style="margin-top: -10px; margin-left: 32px;">
+                <a href="mailto:nafilaarinda@gmail.com"><img src="file/mail.png" alt="mail" width="58px"></a> 
+                <a href="https://wa.me/6282139719944"><img src="file/wa.png" alt="wa" width="57px"></a>
+                <a href="https://www.instagram.com/nafila.arainda/"><img src="file/ig.png" alt="instagram" width="55px"></a>
+            </div>  
+            <hr style="margin-left: 40px;">
+            <p style= "margin-left: 50px; font-size: 13px;">&copy; 2025 NARIN.nda, All Rights Reserved</p>
         </div>
-        
-        <hr>
-        <p>&copy; 2025 NARIN.nda, All Rights Reserved</p>
     </footer>
 
     <script>
         // Mobile menu toggle
         function toggleMobileMenu() {
-            const navMenu = document.getElementById('nav-menu');
-            navMenu.classList.toggle('active');
+            const nav = document.getElementById('desktop-nav');
+            nav.classList.toggle('active');
         }
 
         // Comment functionality
@@ -771,52 +659,29 @@
                 const commentDiv = document.createElement('div');
                 commentDiv.style.cssText = `
                     background: #f8f9fa;
-                    padding: 1rem;
-                    margin: 1rem 0;
-                    border-radius: 10px;
+                    padding: 15px;
+                    margin: 15px 0;
+                    border-radius: 8px;
                     border-left: 4px solid #e74c3c;
                     text-align: left;
                 `;
                 
                 commentDiv.innerHTML = `
-                    <strong style="color: #333; font-size: 1.1rem;">${nameInput.value}</strong>
-                    <p style="margin: 0.5rem 0; color: #666; line-height: 1.5;">${commentBox.value}</p>
-                    <small style="color: #999; font-size: 0.9rem;">${new Date().toLocaleDateString()}</small>
+                    <strong style="color: #333; font-size: 16px;">${nameInput.value}</strong>
+                    <p style="margin: 8px 0; color: #666; line-height: 1.5;">${commentBox.value}</p>
+                    <small style="color: #999; font-size: 12px;">${new Date().toLocaleDateString()}</small>
                 `;
                 
                 commentList.appendChild(commentDiv);
                 
                 nameInput.value = '';
                 commentBox.value = '';
-                
-                // Show success message
-                const successMsg = document.createElement('div');
-                successMsg.textContent = 'Comment added successfully!';
-                successMsg.style.cssText = `
-                    background: #d4edda;
-                    color: #155724;
-                    padding: 0.5rem 1rem;
-                    border-radius: 5px;
-                    margin: 1rem 0;
-                    text-align: center;
-                `;
-                commentList.insertBefore(successMsg, commentList.firstChild);
-                
-                setTimeout(() => successMsg.remove(), 3000);
             } else {
                 alert('Please fill in both name and comment fields.');
             }
         }
 
-        // Newsletter subscription
-        function handleSubscription(event) {
-            event.preventDefault();
-            const email = event.target.querySelector('input[type="email"]').value;
-            alert(`Thank you for subscribing with email: ${email}`);
-            event.target.reset();
-        }
-
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -830,24 +695,17 @@
             });
         });
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('#nav-menu a').forEach(link => {
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.smooth-scroll').forEach(link => {
             link.addEventListener('click', () => {
-                document.getElementById('nav-menu').classList.remove('active');
+                document.getElementById('desktop-nav').classList.remove('active');
             });
         });
 
-        // Image loading optimization
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('load', function() {
-                this.style.opacity = '1';
-            });
-        });
-
-        // Handle window resize
+        // Close mobile menu on window resize
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                document.getElementById('nav-menu').classList.remove('active');
+            if (window.innerWidth > 599) {
+                document.getElementById('desktop-nav').classList.remove('active');
             }
         });
     </script>
