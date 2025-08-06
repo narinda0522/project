@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NARIN.nda</title>
     <style>
-        /* Original CSS dengan tambahan responsive */
         .red {
             color: red;
         }
@@ -154,7 +153,6 @@
             background: #34495e;
         }
 
-        /* Mobile Menu Toggle - Hidden by default */
         .mobile-menu-toggle {
             display: none;
             flex-direction: column;
@@ -173,30 +171,48 @@
 
         /* RESPONSIVE BREAKPOINTS */
 
-        /* Large screens - keep original */
-        @media (min-width: 1200px) {
-            .product-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        /* Medium screens - 3 columns */
-        @media (max-width: 1199px) and (min-width: 900px) {
+        /* Tablet - 3 columns */
+        @media (max-width: 1199px) and (min-width: 769px) {
             .product-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 25px;
             }
+            
+            .hero-section {
+                padding: 40px 30px;
+            }
+            
+            .hero-content h2 {
+                font-size: 48px !important;
+            }
         }
 
-        /* Small screens - 2 columns */
-        @media (max-width: 899px) and (min-width: 600px) {
+        /* Small Tablet - 2 columns */
+        @media (max-width: 768px) and (min-width: 481px) {
             .product-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
             }
             
             .hero-section {
-                padding: 30px;
+                padding: 30px 20px;
+                flex-direction: column;
+                text-align: center;
+                min-height: 400px;
+            }
+            
+            .hero-content {
+                order: 1;
+            }
+            
+            .hero-content h2 {
+                font-size: 36px !important;
+                margin: 15px 0 !important;
+            }
+            
+            .hero-image {
+                order: 2;
+                margin-top: 20px;
             }
             
             header h1 {
@@ -205,22 +221,40 @@
             }
             
             nav ul {
-                gap: 30px !important;
-                padding: 20px !important;
+                gap: 20px !important;
+                padding: 15px !important;
             }
             
             .search-bar {
-                width: 150px !important;
+                width: 160px !important;
             }
             
             .icon {
-                width: 40px !important;
+                width: 45px !important;
+            }
+            
+            .rectangle {
+                margin: 15px;
+                padding: 35px 25px;
+            }
+            
+            .rectangle h2 {
+                font-size: 24px !important;
+            }
+            
+            .subscription-form {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .subscription-form input {
+                width: 100% !important;
+                max-width: 300px;
             }
         }
 
         /* Mobile screens */
-        @media (max-width: 599px) {
-            /* Header adjustments */
+        @media (max-width: 480px) {
             header {
                 flex-wrap: wrap;
                 padding: 10px;
@@ -231,12 +265,10 @@
                 margin-left: 15px !important;
             }
             
-            /* Show mobile menu toggle */
             .mobile-menu-toggle {
                 display: flex;
             }
             
-            /* Hide desktop navigation */
             nav > nav {
                 display: none !important;
             }
@@ -271,13 +303,12 @@
                 width: 100% !important;
                 max-width: 250px;
             }
-            
-            /* Hero section mobile */
+
             .hero-section {
                 flex-direction: column;
                 padding: 20px;
                 text-align: center;
-                min-height: 400px;
+                min-height: 350px;
             }
             
             .hero-content {
@@ -287,6 +318,12 @@
             .hero-content h2 {
                 font-size: 28px !important;
                 margin: 10px 0 !important;
+                line-height: 1.2 !important;
+            }
+            
+            .hero-content p {
+                font-size: 14px !important;
+                margin: 15px 0 !important;
             }
             
             .hero-content button {
@@ -295,12 +332,10 @@
                 font-size: 14px !important;
             }
             
-            /* HIDE cat image on mobile */
             .hero-image {
                 display: none !important;
             }
             
-            /* Product grid - single column */
             .product-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
@@ -323,7 +358,6 @@
                 font-size: 14px;
             }
             
-            /* Sections padding */
             .product-section {
                 padding: 30px 15px;
             }
@@ -332,7 +366,6 @@
                 font-size: 24px !important;
             }
             
-            /* Comment section */
             .comment-section {
                 padding: 30px 15px;
             }
@@ -341,16 +374,16 @@
                 font-size: 22px !important;
             }
             
-            /* Newsletter section */
             .rectangle {
                 margin: 10px;
-                padding: 30px 20px;
+                padding: 25px 15px;
             }
             
             .rectangle h2 {
                 font-size: 20px !important;
                 margin-left: 0 !important;
                 margin-top: 0 !important;
+                line-height: 1.3 !important;
             }
             
             .subscription-form {
@@ -370,7 +403,6 @@
                 margin-left: 0 !important;
             }
             
-            /* Footer */
             footer div > div:first-child h1 {
                 font-size: 18px !important;
                 margin-left: 20px !important;
@@ -413,7 +445,11 @@
             
             .rectangle {
                 margin: 5px;
-                padding: 20px 15px;
+                padding: 20px 10px;
+            }
+            
+            .rectangle h2 {
+                font-size: 18px !important;
             }
         }
     </style>
@@ -422,7 +458,6 @@
     <header>
         <h1 id="logo" style="font-weight: 900; font-style: italic; margin-left: 45px;">NARIN.<span class="red">nda</span></h1>
         
-        <!-- Mobile Menu Toggle -->
         <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
             <span></span>
             <span></span>
@@ -643,13 +678,11 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
         function toggleMobileMenu() {
             const nav = document.getElementById('desktop-nav');
             nav.classList.toggle('active');
         }
 
-        // Comment functionality
         function submitComment() {
             const nameInput = document.getElementById('nameInput');
             const commentBox = document.getElementById('commentBox');
@@ -681,7 +714,6 @@
             }
         }
 
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -695,16 +727,14 @@
             });
         });
 
-        // Close mobile menu when clicking on links
         document.querySelectorAll('.smooth-scroll').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('desktop-nav').classList.remove('active');
             });
         });
 
-        // Close mobile menu on window resize
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 599) {
+            if (window.innerWidth > 480) {
                 document.getElementById('desktop-nav').classList.remove('active');
             }
         });
